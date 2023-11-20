@@ -100,10 +100,57 @@ hr.LinhaHeader {
 
 .list {
     padding: 5px 15px;
+    flex: 1;
 }
 
 .list-header {
     display: flex;
 }
 
-.list_header-select {}
+/*.list_header-select {}*/
+.task_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    background-color: var(--background-light);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.priority,
+.actions {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sphere {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.task_title {
+    padding-left: 10px;
+    font-weight: bold;
+}
