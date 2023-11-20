@@ -27,7 +27,10 @@
                     <div class="graph_header">
                         <h2>Progresso do dia</h2>
                         <div class="graph_header-line"></div>
-                        <div class="graph_header-date">Data</div>
+                        <div class="graph_header-date">
+                            <img src="/assets/images/icon-prev.png" alt="">13 de Dez
+                            <img src="/assets/images/icon-next.png" alt="">
+                        </div>
                     </div>
                     <div class="graph_header-subtitle">Tarefa: <b> 3/6 </b></div>
                     <div class="graph-placeholder"></div>
@@ -60,19 +63,6 @@
                                 <a href="">
                                     <img src="/assets/images/icon-delete.png" alt="">
                                 </a>
-                            </div>
-                        </div>
-                        <div class="task">
-                            <div class="title">
-                                <input type="checkbox">
-                                <h1>Titulo da tarefa</h1>
-                            </div>
-                            <div class="priority">
-                                <div class="sphere"></div>
-                                <div class="task_title">Titulo da tarefa</div>
-                            </div>
-                            <div class="actions">
-                                editar - excluir
                             </div>
                         </div>
                 </section>
