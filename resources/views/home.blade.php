@@ -28,24 +28,25 @@
             </select>
         </div>
         <div class="task_list">
-            <div class="task">
-                <div class="title">
-                    <input type="checkbox">
-                    <h1>Titulo da tarefa</h1>
-                </div>
-                <div class="priority">
-                    <div class="sphere"></div>
-                    <div class="task_title">Titulo da tarefa</div>
-                </div>
-                <div class="actions">
-                    <a href="">
-                        <img src="/assets/images/icon-edit.png" alt="">
-                    </a>
-                    <a href="">
-                        <img src="/assets/images/icon-delete.png" alt="">
-                    </a>
-                </div>
-            </div>
+            @php
+                $tasks = [
+                    [
+                        'id' => 1,
+                        'done' => true,
+                        'title' => 'Estudar',
+                        'category' => 'feito',
+                    ],
+                    [
+                        'id' => 2,
+                        'done' => false,
+                        'title' => 'Passear',
+                        'category' => 'fazer',
+                    ],
+                ];
+            @endphp
+            <x-task :data='$tasks[0]' />
+            <x-task :data='$tasks[1]' />
+
     </section>
     </main>
 </x-layout>
