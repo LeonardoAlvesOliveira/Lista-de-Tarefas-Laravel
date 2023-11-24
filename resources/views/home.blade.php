@@ -29,24 +29,12 @@
             </select>
         </div>
         <div class="task_list">
-            @php
-                $tasks = [
-                    [
-                        'id' => 1,
-                        'done' => true,
-                        'title' => 'Estudar',
-                        'category' => 'feito',
-                    ],
-                    [
-                        'id' => 2,
-                        'done' => false,
-                        'title' => 'Passear',
-                        'category' => 'fazer',
-                    ],
-                ];
-            @endphp
-            <x-task :data='$tasks[0]' />
-            <x-task :data='$tasks[1]' />
+
+            @foreach ($tasks as $task)
+                <x-task :data='$task' />
+            @endforeach
+
+
 
     </section>
     </main>

@@ -13,6 +13,7 @@ class Task extends Model
 
     protected $fillable = [
         'title',
+        'is_done',
         'description',
         'due_date',
         'user_id',
@@ -24,6 +25,6 @@ class Task extends Model
     }
     public function category()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }
