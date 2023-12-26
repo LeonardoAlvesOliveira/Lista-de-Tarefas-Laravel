@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
+use function Laravel\Prompts\alert;
+
 class TaskController extends Controller
 {
     public function index(Request $request)
@@ -14,7 +16,6 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         $categories = Category::all();
-        $data = [];
         $data['categories'] = $categories;
         return view('tasks.create', $data);
     }
@@ -33,13 +34,22 @@ class TaskController extends Controller
         if (!$task) {
             return redirect(route('home'));
         }
+        $categories = Category::all();
+        $data['categories'] = $categories;
         $data['task'] = $task;
         return view('tasks.edit', $data);
     }
-
-
-
-
+    public function edit_action(Request $request)
+    {
+        $request_data = $request->only(['title', 'due_date', 'category_id', 'description']);
+        $task = Task::find($request->id);
+        if (!$task) {
+            alert('erro de tarefa não existente');
+        }
+        $task->update($request_data);
+        $task->save();
+        return redirect(route('home'));
+    }
     public function delete(Request $request)
     {
         return redirect(route('home'));

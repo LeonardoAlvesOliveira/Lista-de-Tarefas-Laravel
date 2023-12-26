@@ -4,21 +4,14 @@
             Voltar para Home</a>
     </x-slot:btn>
 
-    <section id="create_task_section">
+    <section id="task_section">
         <h1>Criar Tarefa</h1>
         <form method="POST"action="{{ route('task.create_action') }}">
             @csrf
 
-            <div class="inputArea">
-                <label for="title">
-                    Titulo da Tarefa
-                </label>
-                <input id="title" name="title"placeholder="Digite o título da tarefa" required>
-            </div>
+            <x-form.text_input name="title" label="Titulo da Tarefa" placeholder="Digite o titulo da tarefa" />
 
-            <x-form.text_input name="title"label="Título da Tarefa" required="required" />
-
-            <x-form.text_input type="date" name="due_date" label="Data de Realização"
+            <x-form.text_input type="datetime-local" name="due_date" label="Data de Realização"
                 placeholder="Escolha a data da tarefa" />
 
             <x-form.select_input name="category_id" label="Categoria" placeholder="Selecione uma categoria">
