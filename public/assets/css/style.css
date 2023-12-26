@@ -219,21 +219,23 @@ h2 {
 
 .inputArea {
     display: block;
-    margin: 10px;
+    margin: 10px 0 20px 0;
 }
 
 .inputArea>label {
     display: block;
     text-align: center;
     margin-bottom: 5px;
+    margin-left: 5px;
 }
 
 .inputArea>input,
 .inputArea>select {
+    background-color: rgba(255, 255, 255, 0.5);
     height: 40px;
     width: 400px;
-    border-radius: 10px;
-    border: 1px solid #333;
+    border-radius: 5px;
+    border: 1px solid #CCC;
     padding: 5px 10px;
 }
 
@@ -243,10 +245,11 @@ h2 {
 }
 
 .inputArea>textarea {
+    background-color: rgba(255, 255, 255, 0.5);
     height: 120px;
     width: 400px;
     resize: none;
-    border: 1px solid #333;
+    border: 1px solid #CCC;
     padding: 5px 10px;
     border-radius: 10px;
 }

@@ -25,10 +25,9 @@
             </x-form.select_input>
 
             <x-form.textarea_input name="description" placeholder="Digite a descrição da tarefa" />
-            <div class="inputArea">
-                <button type="reset" class="btn">Resetar</button>
-                <button type="submit" class="btn btn-primary">Criar Tarefa</button>
-            </div>
+
+            <x-form.form_button resetTxt="Resetar" submitTxt="Criar Tarefa" />
+
         </form>
     </section>
 
