@@ -6,7 +6,8 @@
 
     <section id="create_task_section">
         <h1>Criar Tarefa</h1>
-        <form>
+        <form method="POST"action="{{ route('task.create_action') }}">
+            @csrf
 
             <div class="inputArea">
                 <label for="title">
@@ -20,13 +21,16 @@
             <x-form.text_input type="date" name="due_date" label="Data de Realização"
                 placeholder="Escolha a data da tarefa" />
 
-            <x-form.select_input name="category" label="Categoria" placeholder="Selecione uma categoria">
-                <option>Valor qualquer</option>
+            <x-form.select_input name="category_id" label="Categoria" placeholder="Selecione uma categoria">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
             </x-form.select_input>
 
             <x-form.textarea_input name="description" placeholder="Digite a descrição da tarefa" />
 
             <x-form.form_button resetTxt="Resetar" submitTxt="Criar Tarefa" />
+
 
         </form>
     </section>
