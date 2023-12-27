@@ -1,5 +1,4 @@
 <x-layout page="registro">
-
     <x-slot:btn>
         <a href="{{ route('home') }}"class="btn btn-primary">
             Voltar para Home</a>
@@ -7,6 +6,13 @@
 
     <section id="task_section">
         <h1>Registrar-se</h1>
+        @if ($errors->any())
+            <ul class="alert alert-error">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
         <form method="POST"action="{{ route('user.register_action') }}">
             @csrf
 
