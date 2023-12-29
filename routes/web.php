@@ -11,10 +11,12 @@ Route::post('/task/create_action', [TaskController::class, 'create_action'])->na
 Route::post('/task/edit_action', [TaskController::class, 'edit_action'])->name('task.edit_action');
 Route::post('/register', [AuthController::class, 'register_action'])->name('user.register_action');
 Route::post('/login', [AuthController::class, 'login_action'])->name('user.login_action');
+
 Route::get('/task/new', [TaskController::class, 'create'])->name('task.create');
 Route::get('/task/edit', [TaskController::class, 'edit'])->name('task.edit');
 Route::get('/task/delete', [TaskController::class, 'delete'])->name('task.delete');
 Route::get('/task', [TaskController::class, 'index'])->name('task.view');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');

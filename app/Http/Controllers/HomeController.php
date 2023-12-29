@@ -13,8 +13,6 @@ class HomeController extends Controller
         $tasks = Task::all()->take(5);
         $AuthUser = Auth::user();
 
-
-
         return view('home', ['tasks' => $tasks, 'AuthUser' => $AuthUser]);
     }
 }

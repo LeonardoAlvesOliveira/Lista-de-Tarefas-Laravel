@@ -12,13 +12,12 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        //  dd(Auth::user());
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
         return view('login');
     }
-    public function register(Request $request)
-    {
-        return view('register');
-    }
+
     public function login_action(Request $request)
     {
         $validator = $request->validate([
@@ -30,6 +29,14 @@ class AuthController extends Controller
         };
     }
 
+    public function register(Request $request)
+    {
+        $isLoggedIn = Auth::check();
+        if ($isLoggedIn) {
+            return redirect()->route('home');
+        }
+        return view('register');
+    }
     public function register_action(Request $request)
     {
         $request->validate([
@@ -39,7 +46,11 @@ class AuthController extends Controller
         ]);
         $data = $request->only('name', 'email', 'password');
         $data['password'] = Hash::make($data['password']);
-        User::created($data);
+        User::create($data);
         return redirect(route('login'));
+    }
+    public function logout()
+    {
+        Auth::logout();
     }
 }

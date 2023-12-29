@@ -3,6 +3,8 @@
     <x-slot:btn>
         <a href="{{ route('task.create') }}"class="btn btn-primary">Criar Tarefa
         </a>
+        <a href="{{ route('logout') }}"class="btn btn-primary">Sair
+        </a>
     </x-slot:btn>
 
     <section class="graph">
