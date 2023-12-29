@@ -12,15 +12,18 @@
             <h2>Progresso do dia - </h2>
             <div class="graph_header-line"></div>
             <div class="graph_header-date">
-                <img src="/assets/images/icon-prev.png" alt="">13 de Dez
-                <img src="/assets/images/icon-next.png" alt="">
+                <a href="{{ route('home', ['date' => $date_prev_button]) }}"> <img src="/assets/images/icon-prev.png"
+                        alt="">{{ $date_as_string }}</a>
+                <a href="{{ route('home', ['date' => $date_next_button]) }}"> <img src="/assets/images/icon-next.png"
+                        alt=""></a>
             </div>
         </div>
-        <div class="graph_header-subtitle">Tarefa: <b> 3/6 </b></div>
+        <div class="graph_header-subtitle">Tarefa: <b>{{ $tasks_count - $undone_tasks_count }}/{{ $tasks_count }}</b>
+        </div>
         <div class="graph-placeholder"></div>
         <div class="tasks_left_footer">
             <img src="/assets/images/icon-info.png" alt="">
-            Restam 3 tarefas para serem realizadas
+            Restam {{ $undone_tasks_count }} tarefas para serem realizadas
         </div>
 
     </section>
@@ -35,10 +38,9 @@
             @foreach ($tasks as $task)
                 <x-task :data='$task' />
             @endforeach
-
-
-
     </section>
+
+
     <script>
         async function taskUpdate(element) {
             let = isDone = element.checked
@@ -57,7 +59,12 @@
                 })
             })
             result = await rawResult.json()
-            console.log(result);
+            if (result.success) {
+                alert('task atualizada com sucesso!')
+
+            } else {
+                element.checked = !status
+            }
         }
     </script>
     </main>
