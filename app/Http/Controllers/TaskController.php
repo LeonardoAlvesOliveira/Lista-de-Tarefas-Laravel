@@ -10,6 +10,11 @@ use function Laravel\Prompts\alert;
 
 class TaskController extends Controller
 {
+    public function update(Request $request)
+    {
+        dd($request->all());
+    }
+
     public function index(Request $request)
     {
     }
